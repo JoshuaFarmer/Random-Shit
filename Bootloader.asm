@@ -4,7 +4,7 @@ section.text:
     ; Infinite loop to ensure the bootloader keeps running
     mov ax, 0
     mov ds, ax
-    mov si,ver
+    mov si,text
 print_char:
     lodsb       ; Load the next character from DS:SI into AL
     cmp al, 0   ; Check if it's the null terminator
@@ -17,7 +17,7 @@ hang:
     cli         ; Disable interrupts
     hlt         ; Halt the CPU
 
-ver db "hello world!",0
+text db "hello world!",0
 
 times 510-($-$$) db 0   ; Fill the rest of the boot sector with zeros
 dw 0xAA55              ; Boot signature (required)
