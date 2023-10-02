@@ -1,2 +1,2 @@
 10 print "nya"
-20 goto 1
+20 goto 10
